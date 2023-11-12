@@ -14,16 +14,13 @@ int main(){
             s2 = '0' + s2;
         }
         //cout << s1 << " " << s2 << endl;
-        int nho=0;
+        int tmp=0;
         for (int i=s1.length()-1; i>=0; i--){ 
-            int tmp = (s1[i]-'0') + (s2[i]-'0') + nho;
-            nho = tmp / 10;
-            s3+=to_string(tmp%10);
+            tmp = (s1[i]-'0') + (s2[i]-'0') + tmp;
+            s3 = to_string(tmp%10) + s3;
+            tmp/=10; //bien nho
         }
-        //cout << s3 << endl;
-        for (int i=s3.length()-1; i>=0; i--){
-            cout << s3[i];
-        }
-        cout << endl;
+        if(tmp > 0) s3 = to_string(tmp) + s3; //vd 12+98=110
+        cout << s3 << endl;
     }
 }
